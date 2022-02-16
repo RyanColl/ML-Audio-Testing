@@ -1,7 +1,12 @@
 import Link from 'next/link'
-
+import { AppProvider } from '../context/AppContext'
 const IndexPage = () => {
-  
+  const {state, dispatch} = React.useContext(AppProvider)
+  fetch('/api/audio').then(res=>res.json())
+    .then(({data}) => {
+      // here we receive data from api
+    })
+    .catch(e => console.log(e))
   return (
     <>
       <h1 className='text-info'>HOME</h1>
